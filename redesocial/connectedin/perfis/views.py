@@ -18,6 +18,7 @@ def convidar(request , perfil_id):
 def aceitar(request,convite_id):
     convite = Convite.objects.get(id = convite_id)
     convite.aceitar()
-    return redirect(index)
+    return redirect('index')
+    
 def get_perfil_logado(request):
     return Perfil.objects.get(id = 1)
