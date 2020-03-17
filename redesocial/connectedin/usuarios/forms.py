@@ -12,6 +12,7 @@ class RegistrarUsuarioForm(forms.Form):
             self.adiciona_erro('Por favor,verifique os dados informados')
             valid = False 
         user_exists = User.objects.filter(username = self.data['nome']).exists()
+        
         if user_exists:
             self.adiciona_erro("Usuário já existente")
             valid = False

@@ -6,7 +6,7 @@ class Perfil(models.Model):
     telefone = models.CharField(max_length = 15 , null = False)
     nome_empresa = models.CharField(max_length = 255 , null = False)
     contatos = models.ManyToManyField('self')
-    usuarios = models.OneToOneField(User, on_delete=models.PROTECT , related_name = "perfil+")
+    usuarios = models.OneToOneField(User, on_delete=models.PROTECT , related_name = "perfil")
     
     @property
     def email(self):
