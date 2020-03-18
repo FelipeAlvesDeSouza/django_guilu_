@@ -16,10 +16,10 @@ class Perfil(models.Model):
         Convite(solicitante = self, convidado = perfil_convidado).save()
 
 class Convite(models.Model):
-    solicitante = models.ForeignKey(Perfil, on_delete=models.PROTECT , related_name = 'convites feitos+')
-    convidado = models.ForeignKey(Perfil, on_delete=models.PROTECT , related_name = 'convites recebidos+')
+    solicitante = models.ForeignKey(Perfil, on_delete=models.PROTECT , related_name = 'convites_feitos')
+    convidado = models.ForeignKey(Perfil, on_delete=models.PROTECT , related_name = 'convites_recebidos')
 
     def aceitar(self):
         self.convidado.contatos.add(self.solicitante)
         self.solicitante.contatos.add(self.convidado)
-        self.delete(_)
+        self.delete()
